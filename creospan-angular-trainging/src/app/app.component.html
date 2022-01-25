@@ -1,10 +1,31 @@
-<div
-    *ngFor="let person of people"
->
+<div class="home-container">
     <div>
-        <span>First Name: {{person.firstName}}</span>
-        <span>Last Name: {{person.lastName}}</span>
-        <span>Favorite Color: {{person.favoriteColor}}</span>
+        <div
+            *ngFor="let person of people"
+            class="list-container"
+        >
+            <span class="span-spacing">First Name: {{person.firstName}}</span>
+            <span class="span-spacing">Last Name: {{person.lastName}}</span>
+            <div class="span-spacing">Favorite Color: {{person.favoriteColor}}</div>
+        </div>
+    </div>
+    <div class="input-container">
+        <div>Add New Person:</div>
+        <form [formGroup]="personInputForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="firstName">First Name</label>
+                <input id="formFirstName" type="text" formControlName="firstName">
+            </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <input id="formLastName" type="text" formControlName="lastName">
+            </div>
+            <div>
+                <label for="favoriteColor">Favorite Color</label>
+                <input id="formFavoriteColor" type="text" formControlName="favoriteColor">
+            </div>
+            <button class="button" type="submit">Submit</button>
+        </form>
     </div>
 </div>
 <router-outlet></router-outlet>

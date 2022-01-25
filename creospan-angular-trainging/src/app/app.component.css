@@ -1,0 +1,18 @@
+.span-spacing {
+    padding: 5px;
+    color: white;
+}
+
+.home-container {
+    display: flex;
+    background-color: gray;
+    height: 600px;
+}
+
+.input-container {
+    padding-left: 20px;
+}
+
+.form-input-spacing {
+    padding-left: 5px;
+}

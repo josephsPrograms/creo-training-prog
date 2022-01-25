@@ -18,6 +18,6 @@ export class PersonService {
 
     public addPerson(person: Person): Observable<Person> {
         return this.http.post<Person>(`${this.apiServerUrl}/add-person`, person);
-}
+    }
 
 }
