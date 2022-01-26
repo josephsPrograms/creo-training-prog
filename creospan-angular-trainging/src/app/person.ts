@@ -1,5 +1,6 @@
 export interface Person {
     firstName: string,
     lastName: string,
-    favoriteColor: string
+    favoriteColor: string,
+    id: string
 }

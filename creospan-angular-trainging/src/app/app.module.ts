@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { PersonService } from './person.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { ModifyPersonDialogComponent } from './components/modify-person-dialog/modify-person-dialog/modify-person-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModifyPersonDialogComponent
   ],
   imports: [
     BrowserModule,

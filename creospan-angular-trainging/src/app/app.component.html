@@ -1,12 +1,13 @@
 <div class="home-container">
-    <div>
+    <div class="grid-container">
         <div
             *ngFor="let person of people"
-            class="list-container"
+            class="grid-item"
         >
-            <span class="span-spacing">First Name: {{person.firstName}}</span>
-            <span class="span-spacing">Last Name: {{person.lastName}}</span>
+            <div class="span-spacing">First Name: {{person.firstName}}</div>
+            <div class="span-spacing">Last Name: {{person.lastName}}</div>
             <div class="span-spacing">Favorite Color: {{person.favoriteColor}}</div>
+            <button class="button" type="">Modify</button>
         </div>
     </div>
     <div class="input-container">

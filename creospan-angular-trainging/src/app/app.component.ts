@@ -44,9 +44,10 @@ export class AppComponent implements OnInit {
       firstName: this.personInputForm.controls['firstName'].value,
       lastName: this.personInputForm.controls['lastName'].value,
       favoriteColor: this.personInputForm.controls['favoriteColor'].value,
+      id: ""
     }).subscribe(
       (response: Person) => {
-        alert('test');
+        alert('success');
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
