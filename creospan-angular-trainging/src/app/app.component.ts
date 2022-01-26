@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from './person';
 import { PersonService } from './person.service';
 import { FormBuilder } from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import { ModifyPersonDialogComponent } from './components/modify-person-dialog/modify-person-dialog/modify-person-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private personService: PersonService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
     ) {}
 
   public people: Person[] | undefined;
@@ -22,6 +25,8 @@ export class AppComponent implements OnInit {
     lastName: '',
     favoriteColor: ''
   });
+
+  private personToModify: Person | undefined;
 
 
   ngOnInit(): void {
@@ -55,8 +60,44 @@ export class AppComponent implements OnInit {
     );
   }
 
+  public modifyPerson(person: Person): void {
+    this.personService.modifyPerson({...person})
+    .subscribe(
+      (response: any) => {
+        alert("success");
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+        alert(error.message);
+      }
+    );
+  }
+
   public onSubmit(): void {
     this.addPerson();
+  }
+
+  public openDialog(chosenPerson: Person): void {
+    const dialogRef = this.dialog.open(
+      ModifyPersonDialogComponent,
+      {
+        width: '500px',
+        data: {...chosenPerson}
+      }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.personToModify = result;
+        this.modifyPerson({
+          firstName: result.firstName,
+          lastName: result.lastName,
+          favoriteColor: result.favoriteColor,
+          id: result.id
+        });
+      }
+    });
+
   }
 
 }

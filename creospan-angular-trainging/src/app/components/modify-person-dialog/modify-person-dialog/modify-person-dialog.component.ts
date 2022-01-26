@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Person } from 'src/app/person';
 
 @Component({
   selector: 'app-modify-person-dialog',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModifyPersonDialogComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<ModifyPersonDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Person,
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

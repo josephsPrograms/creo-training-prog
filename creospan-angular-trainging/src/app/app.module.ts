@@ -7,6 +7,10 @@ import { PersonService } from './person.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { ModifyPersonDialogComponent } from './components/modify-person-dialog/modify-person-dialog/modify-person-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {  MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -18,9 +22,15 @@ import { ModifyPersonDialogComponent } from './components/modify-person-dialog/m
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [PersonService],
+  providers: [
+    PersonService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

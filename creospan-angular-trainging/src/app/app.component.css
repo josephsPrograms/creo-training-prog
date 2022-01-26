@@ -19,7 +19,6 @@
 
 .grid-container {
     display: inline-grid;
-    /* flex-wrap: wrap; */
     grid-template-rows: auto;
     grid-template-columns: auto auto;
     width:50%;

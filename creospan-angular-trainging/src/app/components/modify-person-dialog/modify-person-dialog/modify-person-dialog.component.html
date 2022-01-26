@@ -1,1 +1,19 @@
-<p>modify-person-dialog works!</p>
+<h1 mat-dialog-title>Person to Modify</h1>
+<div mat-dialog-content class="mat-form-field-spacing">
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="data.firstName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="data.lastName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Favorite Color</mat-label>
+    <input matInput [(ngModel)]="data.favoriteColor">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

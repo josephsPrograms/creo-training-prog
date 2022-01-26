@@ -7,7 +7,7 @@
             <div class="span-spacing">First Name: {{person.firstName}}</div>
             <div class="span-spacing">Last Name: {{person.lastName}}</div>
             <div class="span-spacing">Favorite Color: {{person.favoriteColor}}</div>
-            <button class="button" type="">Modify</button>
+            <button mat-raised-button (click)="openDialog(person)">Modify</button>
         </div>
     </div>
     <div class="input-container">

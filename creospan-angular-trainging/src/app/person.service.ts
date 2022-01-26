@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Person } from "./person";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -13,11 +13,15 @@ export class PersonService {
     constructor(private http: HttpClient) {}
 
     public getPeople(): Observable<Person[]> {
-            return this.http.get<Person[]>(`${this.apiServerUrl}/people`);
+        return this.http.get<Person[]>(`${this.apiServerUrl}/people`);
     }
 
     public addPerson(person: Person): Observable<Person> {
         return this.http.post<Person>(`${this.apiServerUrl}/add-person`, person);
+    }
+
+    public modifyPerson(person: Person): Observable<Person> {
+        return this.http.put<Person>(`${this.apiServerUrl}/modify-person`, person);
     }
 
 }
