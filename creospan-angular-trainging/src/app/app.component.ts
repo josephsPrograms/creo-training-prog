@@ -52,7 +52,8 @@ export class AppComponent implements OnInit {
       id: ""
     }).subscribe(
       (response: Person) => {
-        alert('success');
+        console.log("Success: ", response);
+        this.getPeople();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -63,14 +64,29 @@ export class AppComponent implements OnInit {
   public modifyPerson(person: Person): void {
     this.personService.modifyPerson({...person})
     .subscribe(
-      (response: any) => {
-        alert("success");
+      (response: Person) => {
+        console.log("Success: ", response);
+        this.getPeople();
       },
       (error: HttpErrorResponse) => {
         console.log(error);
         alert(error.message);
       }
     );
+  }
+
+  public deletePerson(person: Person): void {
+    this.personService.deletePerson(person.id)
+      .subscribe(
+        (response: Person) => {
+          console.log("Success: ", response);
+          this.getPeople();
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error);
+          alert(error.message);
+        }
+      );
   }
 
   public onSubmit(): void {

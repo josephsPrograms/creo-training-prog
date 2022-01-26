@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Person } from "./person";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -22,6 +22,10 @@ export class PersonService {
 
     public modifyPerson(person: Person): Observable<Person> {
         return this.http.put<Person>(`${this.apiServerUrl}/modify-person`, person);
+    }
+
+    public deletePerson(personId: string): Observable<Person> {
+        return this.http.delete<Person>(`${this.apiServerUrl}/delete-person/${personId}`);
     }
 
 }
